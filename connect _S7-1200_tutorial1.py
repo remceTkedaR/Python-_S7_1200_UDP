@@ -4,7 +4,7 @@
 
 
 import snap7.client
-from snap7.snap7types import *
+#from snap7.snap7types import *
 from snap7.util import *
 
 
@@ -23,7 +23,7 @@ Db_test_String String 8.0
 """
 
 def DBRead(plc,db_num,length,dbitems):
-    data = plc.read_area(areas['DB'], db_num, 0, length)
+    data = plc.read_area(Areas['DB'], db_num, 0, length)
     obj = DBObject()
     for item in dbitems:
         value = None
@@ -56,7 +56,7 @@ def get_db_size(array, bytekey, datatypekey):
 
 if __name__ == "__main__":
     plc = snap7.client.Client()
-    plc.connect('192.168.1.120', 0, 0)
+    plc.connect('192.168.2.22', 0, 1)
     itemlist = filter(lambda a: a != '', db.split('\n'))
     deliminator = '\t'
     items = [
